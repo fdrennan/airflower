@@ -1,0 +1,24 @@
+https://towardsdatascience.com/getting-started-with-airflow-using-docker-cd8b44dbff98
+
+docker pull puckel/docker-airflow
+docker run -d -p 8080:8080 puckel/docker-airflow webserver
+
+# Jump into container
+docker exec -ti <container name> bash
+
+
+docker run -d -p 8080:8080 -v /Users/fdrennan/r_projects/airflow_docker/dags:/usr/local/airflow/dags puckel/docker-airflow webserver
+
+sudo docker build -t fdrennan/airflower .
+
+docker run -d -p 8080:8080 \
+    -v /Users/fdrennan/r_projects/airflow_docker/dags:/usr/local/airflow/dags \
+    -v /Users/fdrennan/r_projects/airflow_docker/scripts:/scripts/ \
+    fdrennan/airflower webserver
+    
+    
+docker exec -ti distracted_allen bash
+
+docker container ls
+
+/usr/bin/Rscript /scripts/main.R
